@@ -3,7 +3,9 @@
 [![Build Status][Build-Status-Image]][Build-Status-Url]
 [![CodeFactor][CodeFactor-Image]][CodeFactor-Url]
 
-Eml Viewer
+A simple Eml Viewer
+
+It will scan the directory you chose and let you view all .eml files in it, including sub-directories.
 
 [License-Url]: http://opensource.org/licenses/MIT
 [License-Image]: https://img.shields.io/badge/License-MIT-blue.svg
