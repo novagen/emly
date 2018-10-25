@@ -1,0 +1,66 @@
+﻿<Window x:Class="Emly.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Emly"
+        mc:Ignorable="d" Closing="Window_Closing" Loaded="Window_Loaded"
+		Icon="./Resources/mail.png"
+        Title="Maily" Height="450" Width="800">
+	<Grid>
+		<DockPanel Background="Transparent" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Width="Auto" Height="Auto" Margin="0,0,0,0">
+			<Menu IsMainMenu="True" DockPanel.Dock="Top">
+				<Menu.ItemsPanel>
+					<ItemsPanelTemplate>
+						<DockPanel HorizontalAlignment="Left" />
+					</ItemsPanelTemplate>
+				</Menu.ItemsPanel>
+				<MenuItem Header="_File">
+					<MenuItem Header="_Set path" Click="MenuPath_Click" Name="MenuPath">
+						<MenuItem.Icon>
+							<Image Source="./Resources/dir.png"/>
+						</MenuItem.Icon>
+					</MenuItem>
+					<Separator />
+					<MenuItem Header="_Exit" Click="MenuExit_Click" Name="MenuExit">
+						<MenuItem.Icon>
+							<Image Source="./Resources/close.png"/>
+						</MenuItem.Icon>
+					</MenuItem>
+				</MenuItem>
+			</Menu>
+			<Grid Name="MainGrid">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="*" />
+					<ColumnDefinition Width="5" />
+					<ColumnDefinition Width="*" />
+				</Grid.ColumnDefinitions>
+				<ListView Grid.Column="0" Height="Auto" Width="Auto" Name="mailList" SelectionChanged="SelectedMailChanged" BorderThickness="0">
+					<ListView.View>
+						<GridView>
+							<GridViewColumn Width="Auto" Header="Created" DisplayMemberBinding="{Binding Created, StringFormat='yyyy-MM-dd HH:mm:ss'}" />
+							<GridViewColumn Width="Auto" Header="Subject" DisplayMemberBinding="{Binding FormattedSubject}" />
+						</GridView>
+					</ListView.View>
+				</ListView>
+				<GridSplitter Width="5" Grid.Column="1" HorizontalAlignment="Stretch" Cursor="SizeWE" />
+				<DockPanel Grid.Column="2" Height="Auto" Width="Auto" Name="Infobar">
+					<Grid DockPanel.Dock="Top" Height="Auto" Margin="3,3,3,3">
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="*" />
+							<ColumnDefinition Width="*" />
+						</Grid.ColumnDefinitions>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="*" />
+							<RowDefinition Height="*" />
+						</Grid.RowDefinitions>
+						<TextBlock Grid.Column="0" Grid.Row="0" Name="TextSubject" Text="" FontWeight="Bold" FontSize="14" />
+						<TextBlock Grid.Column="0" Grid.Row="1" Name="TextSender" Text="" FontWeight="Normal" FontSize="10" />
+						<TextBlock Grid.Column="1" Grid.Row="0" Name="TextCreated" Text="" FontWeight="Normal" FontSize="10" HorizontalAlignment="Right" />
+					</Grid>
+					<WebBrowser Height="Auto" Width="Auto" Name="webBrowser" />
+				</DockPanel>
+			</Grid>
+		</DockPanel>
+	</Grid>
+</Window>
