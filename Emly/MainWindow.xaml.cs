@@ -192,12 +192,12 @@ namespace Emly
 
 		private static void MoveIntoView()
 		{
-			if (Application.Current.MainWindow.Top + Application.Current.MainWindow.Height / 2 > SystemParameters.VirtualScreenHeight)
+			if (Application.Current.MainWindow.Top + (Application.Current.MainWindow.Height / 2) > SystemParameters.VirtualScreenHeight)
 			{
 				Application.Current.MainWindow.Top = SystemParameters.VirtualScreenHeight - Application.Current.MainWindow.Height;
 			}
 
-			if (Application.Current.MainWindow.Left + Application.Current.MainWindow.Width / 2 > SystemParameters.VirtualScreenWidth)
+			if (Application.Current.MainWindow.Left + (Application.Current.MainWindow.Width / 2) > SystemParameters.VirtualScreenWidth)
 			{
 				Application.Current.MainWindow.Left = SystemParameters.VirtualScreenWidth - Application.Current.MainWindow.Width;
 			}
